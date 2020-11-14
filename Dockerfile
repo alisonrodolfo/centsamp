@@ -14,8 +14,8 @@ RUN     yum  update -y \
         && useradd -d /home/container -m container
 
 RUN     ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
-RUN     apt-get install -y tzdata
-RUN     dpkg-reconfigure --frontend noninteractive tzdata
+RUN     yum install -y tzdata
+RUN     timedatectl set-timezone America/Sao_Paulo
 
 ENV         USER=container HOME=/home/container
 
