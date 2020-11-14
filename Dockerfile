@@ -17,7 +17,6 @@ RUN     yum  update -y \
 RUN     rm /etc/localtime
 RUN     ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 RUN     yum install -y tzdata
-RUN     dpkg-reconfigure --frontend noninteractive tzdata
 ENV     TZ America/Sao_Paulo
 
 ENV         USER=container HOME=/home/container
