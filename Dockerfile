@@ -10,7 +10,11 @@ ENV         DEBIAN_FRONTEND noninteractive
 RUN     yum update -y && yum upgrade -y && yum clean all
 
 RUN     yum  update -y \
-        && yum  install -y binutils cpp gcc make psmisc glibc-devel glibc-devel.i686 ncurses-devel libstdc++ libstdc++.i686 vim unzip wget perl tar curl openssl mariadb-libs  \
+        && yum install -y kernel-headers kernel-devel binutils \
+        && yum install -y cpp gcc gcc-c++ make psmisc glibc-devel glibc.i686 glibc-devel.i686 \
+        && yum install -y ncurses-devel libstdc++ libGL.so.1 libstdc++.i686 yum install libXinerama.i686 libstdc++.so.6 libmysqlclient.so.18 \
+        && yum install -y vim unzip wget perl tar curl openssl bzip2 mariadb-libs  \
+        yum  update -y \
         && useradd -d /home/container -m container
 
 
